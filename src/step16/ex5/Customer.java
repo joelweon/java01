@@ -1,0 +1,25 @@
+package step16.ex2;
+
+public class Customer {
+  private String name;
+  private int age;
+  private boolean gender;
+
+  public void setName(String name) {
+    this.name = name;
+  }
+  public void setage(int age) {
+    if (age < 0 || age > 130) {
+      throw new RuntimeException("나이가 유효하지 않습니다.");
+    }
+    this.age = age;
+  }
+
+  public void setGender(boolean gender) {
+    this.gender = gender;
+  }
+
+  public String getName() {return this.name;}
+  public int getage() {return this.age;}
+  public boolean isGender() {return this.gender;}
+}
