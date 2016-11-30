@@ -3,10 +3,12 @@ package bitcamp.java89.ems.server;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.PrintStream;
+import java.lang.reflect.Method;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import bitcamp.java89.ems.server.annotation.RequestMapping;
 import bitcamp.java89.ems.server.context.ApplicationContext;
 
 
@@ -47,9 +49,9 @@ public class RequestThread extends Thread {
           }
         }
         
-        Command commandHandler = (Command)appContext.getBean(command[0]);
+        Object requestHandler = appContext.getBean(command[0]);
         
-        if ( commandHandler == null) {
+        if ( requestHandler == null) {
           if (command[0].equals("quit")) {
             doQuit();
             break;
@@ -58,7 +60,9 @@ public class RequestThread extends Thread {
           continue;
         }
         
-        commandHandler.service(paramMap, out);
+        Method m = findRequestMappingMethod(requestHandler.getClass());
+        
+        m.invoke(requestHandler, paramMap, out);
         
         
         
@@ -66,6 +70,19 @@ public class RequestThread extends Thread {
       
       
     } catch (Exception e) {}
+  }
+
+  private Method findRequestMappingMethod(Class<?> clazz) throws Exception{
+    Method[] methods = clazz.getMethods();
+    
+    for (Method m : methods) {
+      RequestMapping anno = m.getAnnotation(RequestMapping.class);
+      if (anno != null) {
+        return m;
+      }
+    }
+    throw new Exception("");
+    
   }
 
 }

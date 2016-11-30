@@ -14,6 +14,27 @@ public class StudentAddController {
   
   public void setStudentDao(StudentDao studentDao) {
     this.studentDao = studentDao;
-    
   }
+  
+  @RequestMapping
+  public void add(HashMap<String,String> paramMap, PrintStream out) {
+    if (studentDao.existUserId(paramMap.get("userId"))) {
+      out.println("");
+      return;
+    }
+    
+    Student student = new Student();
+    student.setUserId(paramMap.get("userId"));
+    student.setPassword(paramMap.get("password"));
+    student.setName(paramMap.get("name"));
+    student.setTel(paramMap.get("tel"));
+    student.setEmail(paramMap.get("email"));
+    student.setWorking(paramMap.get("working").equals("y") ? true : false);
+    student.setBirthYear(Integer.parseInt(paramMap.get("birthYear")));
+    student.setSchool(paramMap.get("school"));
+    
+    studentDao.insert(student);
+  }
+  
+  
 }
