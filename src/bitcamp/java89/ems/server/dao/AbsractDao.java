@@ -13,8 +13,16 @@ public abstract class AbsractDao<T> {
   }
   
   public void load() throws Exception {
-    ObjectInputStream in = new ObjectInputStream(
-        new FileInputStream(this.filenam));
+    try (
+        ObjectInputStream in = new ObjetInputStream(
+        new FileInputStream(this.filename));) {
+          list = (ArrayList<T>in.readObject();
+        } catch (EOFExeption e) {
+          
+        } catch (Exception e) {
+          list = new ArrayList<T>();
+          throw new Exception("데이터 로딩 중 오류 발생!");
+        }
   }
   
   public synchronized void save() {

@@ -1,4 +1,4 @@
-/* 주제: DBMS에 연결하기
+/* 주제: DBMS에 연결하기 I
  * => 조건
  * 1) DBMS가 설치되어 있어야 한다.
  * 2) DBMS 서버가 실행되어 있어야한다.
@@ -8,7 +8,6 @@
  *   => 프로젝트 속성창(java01)-> Java Build Path -> Libraries -> Add JARs -> libs/mysql 선택
  *   => 프로젝트 경로에 JDBC 드라이버 파일("*.jar")을 추가하면 
  *      그 JAR 파일에 들어있는 클래스를 사용할 수 있다. 
- * 5)  
 */
 package step26;
 

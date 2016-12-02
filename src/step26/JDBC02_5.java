@@ -17,8 +17,6 @@ public class JDBC02_5 {
     try (
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java89db",
             "java89", "1111");
-        // java.sql.Connection 구형체로부터 SQL문을 서버에 전달할 객체를 얻는다.
-        // =>리턴 값:
         
         Statement stmt = con.createStatement();) {
         

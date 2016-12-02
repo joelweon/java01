@@ -18,17 +18,8 @@ public class JDBC02_2 {
     try (
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java89db",
             "java89", "1111");
-        // java.sql.Connection 구형체로부터 SQL문을 서버에 전달할 객체를 얻는다.
-        // =>리턴 값:
         
         Statement stmt = con.createStatement();
-        
-        // SQL을 서버에 전달한다.
-        // => 리턴 값: java.sql.ResultSet 구현체
-        // => 주의! 리턴하는 객체에 모든 결과가 들어 있는 것이 아니다.
-        // 서버에 생성된 결과를 가져오는 역할을 한다.
-        // 결과를 가져온 것이 아니다.
-        
         ResultSet rs = stmt.executeQuery("select posi, name, tel, email from ex_contacts");) {
 
       while (rs.next()) {

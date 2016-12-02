@@ -1,7 +1,8 @@
-/* 주제: 데이터 변경하기
+/* 주제: 데이터 변경하기 
  * => executeUpdate() 메서드를 이용하여 SQL문을 전달한다.
- *    리턴 값: 입력된 레코드의 개수이다.
+ *    리턴 값: 변경된 레코드의 개수이다.
  * => SQL 문법
+ *    update 테이블명 set 컬럼명=값, 컬럼명=값, ... where 조건...
  *    
 */
 package step26;
@@ -17,8 +18,6 @@ public class JDBC02_4 {
     try (
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java89db",
             "java89", "1111");
-        // java.sql.Connection 구형체로부터 SQL문을 서버에 전달할 객체를 얻는다.
-        // =>리턴 값:
         
         Statement stmt = con.createStatement();) {
         

@@ -1,4 +1,5 @@
 /* 주제: DBMS에 연결하기 IV
+ * => 예외 처리 추가
 */
 package step26;
 
