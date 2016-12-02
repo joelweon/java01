@@ -55,16 +55,16 @@ password: 암호입력
   );
   
   create table ex_teachers (
-    id varchar(50) not null
-    name varchar(20) not null
-    email varchar(50) not null
-    tel varchar(20)
-    major varchar(20) not null
-    mlanguage varchar(20)
-    gitaddr varchar(20)
-    work int
-    lecture int
-    age int
+    id varchar(50) not null,
+    name varchar(20) not null,
+    email varchar(50) not null,
+    tel varchar(20),
+    major varchar(20) not null,
+    mlanguage varchar(20),
+    gitaddr varchar(20),
+    work int,
+    lecture int,
+    age int,
     salary int
   );
   
@@ -105,15 +105,15 @@ password: 암호입력
   values('eee@test.com', 'eee', '111-1111', '차장');
 
  insert into ex_teachers(id, name, email, major)
- values('aaa', '홍길동', 'hong@test.com', '컴공');
- insert into ex_students(uid, pwd, name, email, work)
- values('bbb', '홍길동2', 'hong2@test.com', '경영');
- insert into ex_students(uid, pwd, name, email, work)
- values('ccc', '홍길동3', 'hong3@test.com', '호경');
- insert into ex_students(uid, pwd, name, email, work)
- values('ddd', '홍길동4', 'hong4@test.com', '회계');
- insert into ex_students(uid, pwd, name, email, work)
- values('eee', '홍길동5', 'hong5@test.com', '컴공');
+  values('aaa', '홍길동', 'hong@test.com', '컴공');
+ insert into ex_teachers(id, name, email, major)
+  values('bbb', '홍길동2', 'hong2@test.com', '경영');
+ insert into ex_teachers(id, name, email, major)
+  values('ccc', '홍길동3', 'hong3@test.com', '호경');
+ insert into ex_teachers(id, name, email, major)
+  values('ddd', '홍길동4', 'hong4@test.com', '회계');
+ insert into ex_teachers(id, name, email, major)
+  values('eee', '홍길동5', 'hong5@test.com', '정통');
 
 => 만약 이메일 컬럼의 값이 중복된다면 insert를 허락하지 않는다.
  insert into ex_students(uid, pwd, name, email, work)
