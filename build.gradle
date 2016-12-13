@@ -1,10 +1,10 @@
 // 자바 관련 빌드 명령을 사용하기 위해 Gradle plugin 추가
 apply plugin: 'java'
 
-// 이클립스 관련 설정 파일을 만들어 주는 Gradle plugin 추가
+// 이클립스 관련 설정 파일을 만들어주는 Gradle plugin 추가
 apply plugin: 'eclipse'
 
-/* Gradle의 기본 폴더 구조는 다음과 같다.
+/* Gradle의 기본 폴더 구조는 다음과 같다
 project폴더/src
                /main
                     /java
