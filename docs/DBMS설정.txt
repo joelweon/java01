@@ -59,7 +59,7 @@ password: 암호입력
     name varchar(20) not null,
     email varchar(50) not null,
     tel varchar(20),
-    major varchar(20) not null,
+    major varchar(20),
     mlanguage varchar(20),
     gitaddr varchar(20),
     work int,
