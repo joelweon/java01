@@ -10,7 +10,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans 
       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
-  <!-- 객체를 생성할 때 프로퍼터에 값을 넣고 싶다면,
+  <!-- 객체를 생성할 때 프로퍼티에 값을 넣고 싶다면,
        다른 말로 셋터 메서드를 호출하여 값을 넣고 싶다면,
        다음과 같이 <property> 태그를 사용하라!
    -->
