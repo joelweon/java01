@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="contacts">
+  <!-- posi 컬럼 값을 객체에 저장하려면, 객체의 프로퍼티 이름과 같게 해야 한다.
+       어떻게? 컬럼에 별명을 추가하라. -->
+  <select id="selectContacts" resultType="step29.ex2.Contact">
+    select 
+      posi as position, 
+      name, 
+      tel, 
+      email 
+    from ex_contacts
+  </select>
+  
+  <insert id="insertContacts" parameterType="step29.ex2.Contact">
+    insert into ex_contacts(email,name,tel,posi)
+    values (#{email}, #{name}, #{tel}, #{position})
+  </insert>
+  
+  <update id="updateContacts" parameterType="step29.ex2.Contact">
+    update ex_contacts set name=#{name}, tel=#{tel}, posi=#{position}
+    where email=#{email}
+  </update>
+  
+  <!-- 파라미터의 타입이 자바 원시 타입이나 String일 경우,
+       in-param의 이름은 아무거나 가능하다. -->
+  <delete id="deleteContacts" parameterType="java.lang.String">
+    delete from ex_contacts
+    where email=#{email}
+  </delete>
+  
+  <select id="selectOneContacts" resultType="step29.ex2.Contact" parameterType="java.lang.String">
+    select 
+      posi as position, 
+      name, 
+      tel, 
+      email 
+    from ex_contacts
+    where email=#{ohora_email}
+  </select>
+</mapper>
+
+
+
+
+
+
+
+
