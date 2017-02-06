@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 네임스페이스를 이용하여 SQL의 이름을 관리할 수 있다. -->
+<mapper namespace="student">
+  <resultMap type="student" id="student-map">
+    <id column="mno" property="memberNo"/>
+    <!--  이름이 같은 것은 생략 가능
+    <result column="name" property="name"/>
+    <result column="tel" property="tel"/>
+    <result column="email" property="email"/>
+     -->
+    <result column="pwd" property="password"/>
+    <result column="work" property="working"/>
+    <result column="lst_schl" property="grade"/>
+    <result column="schl_nm" property="schoolName"/>
+    <result column="pst_no" property="postNo"/>
+    <result column="bas_adr" property="basicAddress"/>
+    <result column="det_adr" property="detailAddress"/>
+    <result column="path" property="photoPath"/>
+  </resultMap><!-- 리절트 맵에 어떤 컬럼에 어떤 프로퍼티에 넣을지를 미리 정해서 편함 -->
+  
+  <!-- Dynamic SQL 생성하기
+      => Mybatis에서 제공하는 특별한 태그를 사용하여 
+         SQL을 동적으로 생성하는 방법
+      => 조건에 따라 여러 개의 SQL문을 생성해야 하는 경우, 
+         SQL 문 생성을 줄일 수 있다.
+   -->
+  <select id="select" resultMap="student-map">
+    select mno, name, tel, email, work, lst_schl, schl_nm, path
+    from memb m join stud s on m.mno=s.sno
+  </select>
+
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
